@@ -16,5 +16,21 @@ class Controller:
         * Numero di Tratte
         * Lista di Tratte che superano il costo indicato come soglia
         """
-        # TODO
+        try:
+            input_val = int(self._view.guadagno_medio_minimo.value)
 
+            self._model.costruisci_grafo(input_val)
+
+            num_nodes = self._model.get_num_nodes()
+            num_edges = self._model.get_num_edges()
+            self._view.lista_visualizzazione.controls.append(ft.Text(f'Numero di Hubs: {num_nodes}'))
+            self._view.lista_visualizzazione.controls.append(ft.Text(f'Numero di Tratte: {num_edges}'))
+
+
+
+            for tratta in self._model._edges:
+                self._view.lista_visualizzazione.controls.append(ft.Text(f'{tratta.partenza},{tratta.arrivo} - {tratta.val}'))
+            self._view.update()
+
+        except ValueError:
+            self._view.show_alert("Numero di Guadagno medio minimo non valido")
