@@ -56,7 +56,7 @@ class DAO:
         cursor.execute(query)
         for row in cursor:
 
-            if row['val'] > val_limite:
+            if row['val'] >= val_limite:
                 tratta = Tratta(row['partenza'],row['arrivo'],row['val'])
                 result.append(tratta)
         conn.close()

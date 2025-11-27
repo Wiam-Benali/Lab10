@@ -20,8 +20,12 @@ class Model:
 
 
         self._edges = DAO.readAlldaotratte(threshold)
+
+        print(len(self._edges))
         for tratta in self._edges:
+
             self.G.add_edge(tratta.partenza, tratta.arrivo)
+
             # associo ai id dei hubs nome e stato
             tratta.partenza = f'{self._nodes[tratta.partenza].nome}({self._nodes[tratta.partenza].stato})'
             tratta.arrivo = f'{self._nodes[tratta.arrivo].nome}({self._nodes[tratta.arrivo].stato})'

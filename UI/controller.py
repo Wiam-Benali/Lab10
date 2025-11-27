@@ -29,7 +29,7 @@ class Controller:
 
 
             for tratta in self._model._edges:
-                self._view.lista_visualizzazione.controls.append(ft.Text(f'{tratta.partenza},{tratta.arrivo} - {tratta.val}'))
+                self._view.lista_visualizzazione.controls.append(ft.Text(f'{tratta.partenza} ---> {tratta.arrivo} - Guadagno medio per spedizione {tratta.val:.2f} €'))
             self._view.update()
 
         except ValueError:
