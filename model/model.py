@@ -24,7 +24,7 @@ class Model:
         print(len(self._edges))
         for tratta in self._edges:
 
-            self.G.add_edge(tratta.partenza, tratta.arrivo)
+            self.G.add_edge(tratta.partenza, tratta.arrivo,peso = tratta.val)
 
             # associo ai id dei hubs nome e stato
             tratta.partenza = f'{self._nodes[tratta.partenza].nome}({self._nodes[tratta.partenza].stato})'
